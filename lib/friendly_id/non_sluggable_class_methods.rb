@@ -15,6 +15,7 @@ module FriendlyId::NonSluggableClassMethods
       else
         result = send("find_by_#{ friendly_id_options[:column] }", id, options)
       end
+      raise ActiveRecord::RecordNotFound if !result
       result.send(:found_using_friendly_id=, true)
     else
       result = super id, options
