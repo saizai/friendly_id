@@ -17,7 +17,11 @@ module FriendlyId::NonSluggableInstanceMethods
 
   # Returns the friendly_id.
   def friendly_id
-    send friendly_id_options[:column]
+    friendly = send friendly_id_options[:column]
+    if friendly_id_options[:scope] and !send(friendly_id_options[:scope]).blank? # don't add a separator if it's unscoped
+      friendly = send(friendly_id_options[:scope]) + friendly_id_options[:separator] + friendly
+    end
+    friendly
   end
   alias best_id friendly_id
 

@@ -14,6 +14,7 @@ module FriendlyId
     :reserved_message => 'can not be "%s"',
     :cache_column => nil,
     :scope => nil,
+    :separator => ':', # like Wikipedia, e.g. UserTalk:Foo
     :strip_diacritics => false,
     :strip_non_ascii => false,
     :use_slug => false }.freeze
@@ -25,6 +26,7 @@ module FriendlyId
     :reserved_message,
     :cache_column,
     :scope,
+    :separator,
     :strip_diacritics,
     :strip_non_ascii,
     :use_slug ].freeze
