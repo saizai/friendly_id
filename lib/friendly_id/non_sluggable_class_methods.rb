@@ -25,6 +25,8 @@ module FriendlyId::NonSluggableClassMethods
   end
 
   def find_some(ids_and_names, options) #:nodoc:#
+    return super(ids_and_names, options) if ids_and_names.select{|x| x.is_a? String}.blank?
+    
     scopable = friendly_id_options.has_key? :scope
     # if there's no scope specified... we don't assume it, because it's too ambiguous. Instead we don't select for scope. Can be made specific by using the prefix (e.g. ':Foo')
     has_scope = (options.has_key?(:scope) or ids_and_names.find{|x| x.is_a?(String) and x.include?(friendly_id_options[:separator])})
