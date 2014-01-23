@@ -1,6 +1,6 @@
 require 'newgem'
 require 'hoe'
-require 'lib/friendly_id/version'
+require './lib/friendly_id/version'
 require 'hoe'
 
 Hoe.spec "friendly_id" do
@@ -10,7 +10,7 @@ Hoe.spec "friendly_id" do
   self.email = ['norman@njclarke.com', 'adrian@mugnolo.com', 'miloops@gmail.com']
   self.summary = "A comprehensive slugging and pretty-URL plugin for ActiveRecord."
   self.description = 'A comprehensive slugging and pretty-URL plugin for ActiveRecord.'
-  self.url = 'http://friendly-id.rubyforge.org/'
+  self.urls = ['http://friendly-id.rubyforge.org/']
   self.test_globs = ['test/**/*_test.rb']
   self.extra_deps << ['activerecord', '>= 2.2.3']
   self.extra_deps << ['activesupport', '>= 2.2.3']
